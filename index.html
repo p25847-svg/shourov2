@@ -2,160 +2,145 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shourov Das</title>
-
+<title>CalculLove</title>
 <style>
-body {
-    margin: 0;
-    font-family: Arial;
-    background: #eaffea;
-}
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: radial-gradient(circle at top, #1a1333, #05030d);
+        color: white;
+        display: flex;
+        justify-content: center;
+    }
 
-/* Header */
-.header {
-    background: #28a745;
-    color: white;
-    text-align: center;
-    padding: 30px;
-}
+    .container {
+        width: 350px;
+        padding: 20px;
+    }
 
-.header img {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    border: 4px solid white;
-    object-fit: cover;
-}
+    h1 {
+        text-align: center;
+        color: #ff7aa2;
+    }
 
-/* Navbar */
-.nav {
-    background: #1e7e34;
-    text-align: center;
-    padding: 10px;
-}
+    .subtitle {
+        text-align: center;
+        color: #aaa;
+        margin-bottom: 20px;
+    }
 
-.nav a {
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
-}
+    .tabs {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
 
-/* Content */
-.container {
-    width: 85%;
-    margin: auto;
-}
+    .tab {
+        flex: 1;
+        margin: 5px;
+        padding: 10px;
+        border-radius: 20px;
+        text-align: center;
+        background: #1c1736;
+        cursor: pointer;
+    }
 
-.card {
-    background: white;
-    padding: 20px;
-    margin: 20px 0;
-    border-left: 5px solid #28a745;
-    border-radius: 5px;
-}
+    .active {
+        background: gold;
+        color: black;
+    }
 
-h2 {
-    color: #1e7e34;
-}
+    .card {
+        background: #120c2c;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+    }
 
-/* Footer */
-.footer {
-    background: #28a745;
-    color: white;
-    text-align: center;
-    padding: 10px;
-}
+    input {
+        width: 100%;
+        padding: 12px;
+        margin-top: 10px;
+        border-radius: 10px;
+        border: none;
+        background: #1c1736;
+        color: white;
+    }
 
-a {
-    color: #1e7e34;
-}
+    .btn {
+        width: 100%;
+        margin-top: 20px;
+        padding: 15px;
+        border-radius: 20px;
+        border: none;
+        background: gold;
+        color: black;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .result {
+        margin-top: 20px;
+        font-size: 18px;
+        text-align: center;
+        color: #ffd700;
+    }
 </style>
 </head>
-
 <body>
 
-<div class="header">
-    <img src="profile.jpg">
-    <h1>Shourov Das</h1>
-    <p>Business Student | Aspiring Professional</p>
-</div>
-
-<div class="nav">
-    <a href="#objective">Objective</a>
-    <a href="#education">Education</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-</div>
-
 <div class="container">
+    <h1>✨ CalculLove</h1>
+    <div class="subtitle">Age · Love · Life's little calculations</div>
 
-<div id="objective" class="card">
-<h2>Objective</h2>
-<p>
-Motivated and detail-oriented undergraduate business student at Pacific States University seeking opportunities to apply academic knowledge in real-world business environments.
-</p>
+    <div class="tabs">
+        <div class="tab active">🎂 Age</div>
+        <div class="tab">💕 Love</div>
+        <div class="tab">🧮 Calc</div>
+    </div>
+
+    <div class="card">
+        <h2>🎂 Age Calculator</h2>
+        <p>Find out exactly how old you are</p>
+
+        <label>Date of Birth</label>
+        <input type="date" id="dob">
+
+        <button class="btn" onclick="calculateAge()">✨ Calculate My Age</button>
+
+        <div class="result" id="result"></div>
+    </div>
 </div>
 
-<div id="education" class="card">
-<h2>Education</h2>
-<p><b>Pacific States University</b> — Los Angeles, CA</p>
-<p>Bachelor of Business Administration (Undergraduate)</p>
-<ul>
-<li>Principles of Management</li>
-<li>Marketing Fundamentals</li>
-<li>Financial Accounting</li>
-<li>Business Communication</li>
-<li>Economics</li>
-</ul>
-</div>
+<script>
+function calculateAge() {
+    let dob = document.getElementById("dob").value;
+    if (!dob) {
+        alert("Please select your birth date");
+        return;
+    }
 
-<div id="skills" class="card">
-<h2>Skills</h2>
-<ul>
-<li>Communication skills</li>
-<li>Microsoft Office</li>
-<li>Time management</li>
-<li>Teamwork</li>
-<li>Problem solving</li>
-</ul>
-</div>
+    let birthDate = new Date(dob);
+    let today = new Date();
 
-<div id="projects" class="card">
-<h2>Projects</h2>
-<p><b>Business Case Study Analysis</b></p>
-<ul>
-<li>Analyzed business scenarios</li>
-<li>Researched market trends</li>
-<li>Presented structured reports</li>
-</ul>
-</div>
+    let years = today.getFullYear() - birthDate.getFullYear();
+    let months = today.getMonth() - birthDate.getMonth();
+    let days = today.getDate() - birthDate.getDate();
 
-<div id="contact" class="card">
-<h2>Contact</h2>
-<p>Email: shourovdas456@gmail.com</p>
+    if (days < 0) {
+        months--;
+        days += 30;
+    }
 
-<p>Facebook:
-<a href="https://www.facebook.com/shourov.das.649318?mibextid=wwXIfr" target="_blank">
-Visit Profile
-</a>
-</p>
+    if (months < 0) {
+        years--;
+        months += 12;
+    }
 
-<p>GitHub:
-<a href="https://github.com/p25847-svg" target="_blank">
-Visit GitHub
-</a>
-</p>
-
-</div>
-
-</div>
-
-<div class="footer">
-<p>© 2026 Shourov Das</p>
-</div>
+    document.getElementById("result").innerHTML =
+        `🎉 You are <b>${years}</b> years, <b>${months}</b> months, <b>${days}</b> days old`;
+}
+</script>
 
 </body>
 </html>
