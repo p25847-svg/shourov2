@@ -1,69 +1,156 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: radial-gradient(circle at top, #2b0000, #0a0000);
-    color: white;
-    display: flex;
-    justify-content: center;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CalculLove - Green Theme</title>
 
-h1 {
-    text-align: center;
-    color: #ff4d6d; /* pink-red */
-}
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: radial-gradient(circle at top, #003d1f, #001a0d);
+        color: white;
+        display: flex;
+        justify-content: center;
+    }
 
-.subtitle {
-    text-align: center;
-    color: #ffb3b3;
-}
+    .container {
+        width: 350px;
+        padding: 20px;
+    }
 
-.tab {
-    flex: 1;
-    margin: 5px;
-    padding: 10px;
-    border-radius: 20px;
-    text-align: center;
-    background: #2a0d0d;
-    cursor: pointer;
-}
+    h1 {
+        text-align: center;
+        color: #00ff99;
+    }
 
-.active {
-    background: linear-gradient(45deg, #ff1a1a, #ff4d4d);
-    color: white;
-}
+    .subtitle {
+        text-align: center;
+        color: #99ffcc;
+        margin-bottom: 20px;
+    }
 
-.card {
-    background: #1a0000;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
-}
+    .tabs {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
 
-input {
-    width: 100%;
-    padding: 12px;
-    margin-top: 10px;
-    border-radius: 10px;
-    border: none;
-    background: #2a0d0d;
-    color: white;
-}
+    .tab {
+        flex: 1;
+        margin: 5px;
+        padding: 10px;
+        border-radius: 20px;
+        text-align: center;
+        background: #002b1a;
+        cursor: pointer;
+    }
 
-.btn {
-    width: 100%;
-    margin-top: 20px;
-    padding: 15px;
-    border-radius: 20px;
-    border: none;
-    background: linear-gradient(45deg, #ff1a1a, #ff6666);
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-}
+    .active {
+        background: linear-gradient(45deg, #00ff99, #00cc66);
+        color: black;
+        font-weight: bold;
+    }
 
-.result {
-    margin-top: 20px;
-    font-size: 18px;
-    text-align: center;
-    color: #ff4d4d;
+    .card {
+        background: #001a0d;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 0 20px rgba(0, 255, 128, 0.4);
+    }
+
+    input {
+        width: 100%;
+        padding: 12px;
+        margin-top: 10px;
+        border-radius: 10px;
+        border: none;
+        background: #002b1a;
+        color: white;
+    }
+
+    .btn {
+        width: 100%;
+        margin-top: 20px;
+        padding: 15px;
+        border-radius: 20px;
+        border: none;
+        background: linear-gradient(45deg, #00ff99, #00cc66);
+        color: black;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px #00ff99;
+    }
+
+    .result {
+        margin-top: 20px;
+        font-size: 18px;
+        text-align: center;
+        color: #00ff99;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>✨ CalculLove</h1>
+    <div class="subtitle">Age · Love · Life's little calculations</div>
+
+    <div class="tabs">
+        <div class="tab active">🎂 Age</div>
+        <div class="tab">💕 Love</div>
+        <div class="tab">🧮 Calc</div>
+    </div>
+
+    <div class="card">
+        <h2>🎂 Age Calculator</h2>
+        <p>Find out exactly how old you are</p>
+
+        <label>Date of Birth</label>
+        <input type="date" id="dob">
+
+        <button class="btn" onclick="calculateAge()">✨ Calculate My Age</button>
+
+        <div class="result" id="result"></div>
+    </div>
+</div>
+
+<script>
+function calculateAge() {
+    let dob = document.getElementById("dob").value;
+
+    if (!dob) {
+        alert("Please select your birth date");
+        return;
+    }
+
+    let birthDate = new Date(dob);
+    let today = new Date();
+
+    let years = today.getFullYear() - birthDate.getFullYear();
+    let months = today.getMonth() - birthDate.getMonth();
+    let days = today.getDate() - birthDate.getDate();
+
+    if (days < 0) {
+        months--;
+        days += 30;
+    }
+
+    if (months < 0) {
+        years--;
+        months += 12;
+    }
+
+    document.getElementById("result").innerHTML =
+        `🎉 You are <b>${years}</b> years, <b>${months}</b> months, <b>${days}</b> days old`;
 }
+</script>
+
+</body>
+</html>
