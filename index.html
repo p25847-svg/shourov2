@@ -7,13 +7,19 @@
     body {
       text-align: center;
       font-family: Arial, sans-serif;
-      margin-top: 100px;
-      background-color: #ffe6e6;
+      margin-top: 80px;
+      background: linear-gradient(135deg, #ffb6c1, #ffc0cb, #ff99cc);
+      overflow: hidden;
     }
 
     h1 {
-      font-size: 40px;
-      color: #ff3366;
+      font-size: 45px;
+      color: #ff0066;
+    }
+
+    .cats {
+      font-size: 30px;
+      margin-bottom: 20px;
     }
 
     .btn {
@@ -39,7 +45,9 @@
 </head>
 <body>
 
-  <h1>I Love You ❤️</h1>
+  <div class="cats">🐱🐱🐱 🐾 🐱🐱</div>
+
+  <h1>I love you ghelu 💖</h1>
 
   <button id="accept" class="btn" onclick="acceptLove()">Accept 💖</button>
   <button id="reject" class="btn">Reject 💔</button>
@@ -48,15 +56,15 @@
     const rejectBtn = document.getElementById("reject");
 
     rejectBtn.addEventListener("mouseover", () => {
-      const x = Math.random() * window.innerWidth;
-      const y = Math.random() * window.innerHeight;
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 50);
 
       rejectBtn.style.left = x + "px";
       rejectBtn.style.top = y + "px";
     });
 
     function acceptLove() {
-      alert("Yay! 💕 I knew it 😍");
+      alert("Aww ghelu 😍💕");
     }
   </script>
 
