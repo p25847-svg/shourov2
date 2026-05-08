@@ -1,118 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Age Calculator</title>
+  <meta charset="UTF-8">
+  <title>Love Proposal 😍</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      margin-top: 100px;
+      background-color: #ffe6e6;
+    }
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #003d1f, #001a0d);
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
+    h1 {
+      font-size: 40px;
+      color: #ff3366;
+    }
 
-.card {
-    background: #012a1c;
-    padding: 30px;
-    border-radius: 20px;
-    width: 320px;
-    text-align: center;
-    box-shadow: 0 0 20px rgba(0,255,150,0.3);
-}
+    .btn {
+      padding: 15px 30px;
+      font-size: 18px;
+      margin: 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
 
-h1 {
-    margin-bottom: 10px;
-    color: #00ff99;
-}
+    #accept {
+      background-color: #4CAF50;
+      color: white;
+    }
 
-p {
-    color: #aaffdd;
-}
-
-input {
-    width: 100%;
-    padding: 12px;
-    margin-top: 15px;
-    border-radius: 10px;
-    border: none;
-    background: #014d33;
-    color: white;
-    font-size: 16px;
-}
-
-button {
-    width: 100%;
-    margin-top: 20px;
-    padding: 14px;
-    border-radius: 20px;
-    border: none;
-    background: linear-gradient(45deg, #00ff99, #00cc66);
-    color: black;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-button:hover {
-    box-shadow: 0 0 10px #00ff99;
-}
-
-.result {
-    margin-top: 20px;
-    font-size: 18px;
-    color: #00ff99;
-}
-</style>
+    #reject {
+      background-color: #ff3333;
+      color: white;
+      position: absolute;
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="card">
-    <h1>🎂 Age Calculator</h1>
-    <p>Enter your date of birth</p>
+  <h1>I Love You ❤️</h1>
 
-    <input type="date" id="dob">
+  <button id="accept" class="btn" onclick="acceptLove()">Accept 💖</button>
+  <button id="reject" class="btn">Reject 💔</button>
 
-    <button onclick="calculateAge()">Calculate Age</button>
+  <script>
+    const rejectBtn = document.getElementById("reject");
 
-    <div class="result" id="result"></div>
-</div>
+    rejectBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * window.innerWidth;
+      const y = Math.random() * window.innerHeight;
 
-<script>
-function calculateAge() {
-    let dob = document.getElementById("dob").value;
+      rejectBtn.style.left = x + "px";
+      rejectBtn.style.top = y + "px";
+    });
 
-    if (!dob) {
-        alert("Please select your date of birth");
-        return;
+    function acceptLove() {
+      alert("Yay! 💕 I knew it 😍");
     }
-
-    let birthDate = new Date(dob);
-    let today = new Date();
-
-    let years = today.getFullYear() - birthDate.getFullYear();
-    let months = today.getMonth() - birthDate.getMonth();
-    let days = today.getDate() - birthDate.getDate();
-
-    if (days < 0) {
-        months--;
-        days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
-    }
-
-    if (months < 0) {
-        years--;
-        months += 12;
-    }
-
-    document.getElementById("result").innerHTML =
-        `You are <b>${years}</b> years, <b>${months}</b> months, <b>${days}</b> days old`;
-}
-</script>
+  </script>
 
 </body>
 </html>
