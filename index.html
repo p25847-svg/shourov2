@@ -2,69 +2,79 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Love Proposal 😍</title>
+  <title>Marry Me 💍</title>
+
   <style>
     body {
+      margin: 0;
+      padding: 0;
       text-align: center;
       font-family: Arial, sans-serif;
-      margin-top: 80px;
-      background: linear-gradient(135deg, #ffb6c1, #ffc0cb, #ff99cc);
+
+      background: url('cat.jpg') no-repeat center center/cover;
+      height: 100vh;
       overflow: hidden;
+      color: white;
+    }
+
+    .overlay {
+      background: rgba(0,0,0,0.4);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     h1 {
       font-size: 45px;
-      color: #ff0066;
-    }
-
-    .cats {
-      font-size: 30px;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
 
     .btn {
       padding: 15px 30px;
       font-size: 18px;
-      margin: 20px;
+      margin: 15px;
       border: none;
       border-radius: 10px;
       cursor: pointer;
     }
 
-    #accept {
-      background-color: #4CAF50;
+    #yes {
+      background-color: #28a745;
       color: white;
     }
 
-    #reject {
-      background-color: #ff3333;
+    #no {
+      background-color: #dc3545;
       color: white;
       position: absolute;
     }
   </style>
 </head>
+
 <body>
 
-  <div class="cats">🐱🐱🐱 🐾 🐱🐱</div>
+  <div class="overlay">
+    <h1>Will you marry me? 💍🐱</h1>
 
-  <h1>I love you ghelu 💖</h1>
-
-  <button id="accept" class="btn" onclick="acceptLove()">Accept 💖</button>
-  <button id="reject" class="btn">Reject 💔</button>
+    <button id="yes" class="btn" onclick="yesClick()">Yes 💖</button>
+    <button id="no" class="btn">No 💔</button>
+  </div>
 
   <script>
-    const rejectBtn = document.getElementById("reject");
+    const noBtn = document.getElementById("no");
 
-    rejectBtn.addEventListener("mouseover", () => {
+    noBtn.addEventListener("mouseover", () => {
       const x = Math.random() * (window.innerWidth - 100);
       const y = Math.random() * (window.innerHeight - 50);
 
-      rejectBtn.style.left = x + "px";
-      rejectBtn.style.top = y + "px";
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
     });
 
-    function acceptLove() {
-      alert("Aww ghelu 😍💕");
+    function yesClick() {
+      alert("I knew it 😍💍");
     }
   </script>
 
